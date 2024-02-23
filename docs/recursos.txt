@@ -28,7 +28,7 @@ Atributos: AsignacionID (PK), TareaID (FK), UsuarioID (FK)
 7) Notificaciones: => Stalin Quilumbango
 Atributos: NotificacionID (PK), Contenido, Fecha de Creación, UsuarioID (FK)
 
-8) Archivos Adjuntos: => 
+8) Archivos Adjuntos: => Walter Garcia
 Atributos: ArchivoID (PK), Nombre del Archivo, Ruta del Archivo, TareaID (FK)
 
 9) Historial de Tareas: => Joel Acosta
