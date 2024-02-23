@@ -1,0 +1,64 @@
+Nombre del Proyecto: Sistema de Gestión de Tareas Colaborativas
+
+Descripción del Proyecto: Desarrollar una aplicación web en PHP para gestionar tareas colaborativas entre un equipo de 16 personas. El sistema se centrará en la programación y las entidades de la base de datos para garantizar la colaboración eficiente.
+
+Patron de Desarrollo => MVC
+
+Entidades de la Base de Datos:  (Modelo, Controlador y la Vista)
+
+Usuarios:
+
+Atributos: UserID (PK), Nombre, Correo Electrónico, Contraseña, RolID (FK)
+Roles:
+
+Atributos: RolID (PK), Nombre del Rol
+Tareas:
+
+Atributos: TareaID (PK), Descripción, Fecha de Creación, Fecha de Vencimiento, Estado, AsignadoA (FK), Creador (FK)
+Comentarios:
+
+Atributos: ComentarioID (PK), Contenido, Fecha de Creación, TareaID (FK), UsuarioID (FK)
+Proyectos:
+
+Atributos: ProyectoID (PK), Nombre del Proyecto, Descripción, Fecha de Inicio, Fecha de Finalización
+Asignaciones:
+
+Atributos: AsignacionID (PK), TareaID (FK), UsuarioID (FK)
+Notificaciones:
+
+Atributos: NotificacionID (PK), Contenido, Fecha de Creación, UsuarioID (FK)
+Archivos Adjuntos:
+
+Atributos: ArchivoID (PK), Nombre del Archivo, Ruta del Archivo, TareaID (FK)
+Historial de Tareas:
+
+Atributos: HistorialID (PK), TareaID (FK), Estado Anterior, Estado Nuevo, Fecha de Cambio
+Seguidores:
+
+Atributos: SeguidorID (PK), UsuarioID (FK), ProyectoID (FK)
+Proyecto-Tarea Relación:
+
+Atributos: ProyectoID (FK), TareaID (FK)
+Rol-Tarea Relación:
+
+Atributos: RolID (FK), TareaID (FK)
+Rol-Usuario Relación:
+
+Atributos: RolID (FK), UsuarioID (FK)
+Comentario-Tarea Relación:
+
+Atributos: ComentarioID (FK), TareaID (FK)
+Archivo-Tarea Relación:
+
+Atributos: ArchivoID (FK), TareaID (FK)
+Proyecto-Usuario Relación:
+
+Atributos: ProyectoID (FK), UsuarioID (FK)
+Relaciones:
+
+Un Usuario puede tener varios Roles (Relación 1:N)
+Varios Usuarios pueden estar asignados a una Tarea y una Tarea puede tener varios Usuarios asignados (Relación M:N)
+Varios Comentarios pueden estar asociados a una Tarea y una Tarea puede tener varios Comentarios (Relación M:N)
+Varios Archivos Adjuntos pueden estar asociados a una Tarea y una Tarea puede tener varios Archivos Adjuntos (Relación M:N)
+Un Proyecto puede tener varias Tareas y una Tarea puede pertenecer a varios Proyectos (Relación M:N)
+Varios Usuarios pueden seguir un Proyecto y un Proyecto puede tener varios Seguidores (Relación M:N)
