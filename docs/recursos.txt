@@ -3,6 +3,7 @@ Nombre del Proyecto: Sistema de Gestión de Tareas Colaborativas
 Descripción del Proyecto: Desarrollar una aplicación web en PHP para gestionar tareas colaborativas entre un equipo de 16 personas. El sistema se centrará en la programación y las entidades de la base de datos para garantizar la colaboración eficiente.
 
 Patron de Desarrollo => MVC
+Fecha y Hora de Entrega: Sábado, 24 de febrero del 2024
 
 Entidades de la Base de Datos:  (Modelo, Controlador y la Vista)
 
