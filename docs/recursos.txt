@@ -6,56 +6,59 @@ Patron de Desarrollo => MVC
 
 Entidades de la Base de Datos:  (Modelo, Controlador y la Vista)
 
-Usuarios:
-
+1) Usuarios => Matias Mosquera
 Atributos: UserID (PK), Nombre, Correo Electrónico, Contraseña, RolID (FK)
-Roles:
 
+2) Roles: => Carlos Pintag
 Atributos: RolID (PK), Nombre del Rol
-Tareas:
 
+3) Tareas: => Edison Gonzalez
 Atributos: TareaID (PK), Descripción, Fecha de Creación, Fecha de Vencimiento, Estado, AsignadoA (FK), Creador (FK)
-Comentarios:
 
+4) Comentarios: => Paulo Yepez
 Atributos: ComentarioID (PK), Contenido, Fecha de Creación, TareaID (FK), UsuarioID (FK)
-Proyectos:
 
+5) Proyectos: => Francisco Quinteros
 Atributos: ProyectoID (PK), Nombre del Proyecto, Descripción, Fecha de Inicio, Fecha de Finalización
-Asignaciones:
 
+6) Asignaciones: => Cristian Masaquiza
 Atributos: AsignacionID (PK), TareaID (FK), UsuarioID (FK)
-Notificaciones:
 
+7) Notificaciones: => Stalin Quilumbango
 Atributos: NotificacionID (PK), Contenido, Fecha de Creación, UsuarioID (FK)
-Archivos Adjuntos:
 
+8) Archivos Adjuntos: => 
 Atributos: ArchivoID (PK), Nombre del Archivo, Ruta del Archivo, TareaID (FK)
-Historial de Tareas:
 
+9) Historial de Tareas: => Joel Acosta
 Atributos: HistorialID (PK), TareaID (FK), Estado Anterior, Estado Nuevo, Fecha de Cambio
-Seguidores:
-
+ 
+10) Seguidores: => Nando Pozo
 Atributos: SeguidorID (PK), UsuarioID (FK), ProyectoID (FK)
-Proyecto-Tarea Relación:
 
+11) Proyecto-Tarea Relación:
 Atributos: ProyectoID (FK), TareaID (FK)
-Rol-Tarea Relación:
 
+12) Rol-Tarea Relación:
 Atributos: RolID (FK), TareaID (FK)
-Rol-Usuario Relación:
 
+13) Rol-Usuario Relación: => Luis Cañar
 Atributos: RolID (FK), UsuarioID (FK)
-Comentario-Tarea Relación:
 
+14) Comentario-Tarea Relación:
 Atributos: ComentarioID (FK), TareaID (FK)
-Archivo-Tarea Relación:
 
+15) Archivo-Tarea Relación:
 Atributos: ArchivoID (FK), TareaID (FK)
-Proyecto-Usuario Relación:
 
+16) Proyecto-Usuario Relación:
 Atributos: ProyectoID (FK), UsuarioID (FK)
-Relaciones:
 
+
+
+
+
+Relaciones:
 Un Usuario puede tener varios Roles (Relación 1:N)
 Varios Usuarios pueden estar asignados a una Tarea y una Tarea puede tener varios Usuarios asignados (Relación M:N)
 Varios Comentarios pueden estar asociados a una Tarea y una Tarea puede tener varios Comentarios (Relación M:N)
