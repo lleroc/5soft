@@ -35,7 +35,7 @@
                     </g>
                 </svg>
             </span>
-            <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2">Tarea</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -50,7 +50,7 @@
         <li class="menu-item active">
             <a href="index.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
+                <div data-i18n="Analytics">Home</div>
             </a>
         </li>
 
@@ -58,7 +58,7 @@
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Layouts</div>
+                <div data-i18n="Layouts">Tablas</div>
             </a>
 
             <ul class="menu-sub">
@@ -70,8 +70,11 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="layouts-container.html" class="menu-link">
-                        <div data-i18n="Container">Container</div>
+
+                <a href="usuarios/roles.views.php" target="base" class="menu-link">
+                
+                        <?php $_SESSION['rutas'] = 'Roles'; ?>
+                        <div data-i18n="Without navbar">Roles</div>
                     </a>
                 </li>
                 <li class="menu-item">
