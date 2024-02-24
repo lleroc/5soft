@@ -40,10 +40,10 @@ var CargaLista = () => {
                 <td>${tareas.Estado}</td>
                 
     <td>
-    <button class='btn btn-primary' click='uno(${
+    <button class='btn btn-primary' onclick='uno(${
       tareas.TareaID
     })'>Editar</button>
-    <button class='btn btn-warning' click='eliminar(${
+    <button class='btn btn-warning' onclick='Eliminar(${
       tareas.TareaID
     })'>Eliminar</button>
                 `;
@@ -81,35 +81,35 @@ var GuardarEditar = (e) => {
     },
   });
 };
+
 var uno = (TareaID) => {
   $.post(
     "../../controllers/tareas.controllers.php?op=uno",
     { TareaID: TareaID },
     (tareas) => {
       tareas = JSON.parse(tareas);
-      $("#ProyectoID").val(tareas.TareaID);
-      $("#NombreDelProyecto").val(tareas.Descripcion);
-      $("#Descripcion").val(tareas.FechaCreacion);
-      $("#FechaDeInicio").val(tareas.FechaVencimiento);
-      $("#FechaDeFinalizacion").val(tareas.Estado);
-      $("#ModalProyectos").modal("show");
+      $("#TareaID").val(tareas.TareaID);
+      $("#Descripcion").val(tareas.Descripcion);
+      $("#FechaCreacion").val(tareas.FechaCreacion);
+      $("#FechaVencimiento").val(tareas.FechaVencimiento);
+      $("#Estado").val(tareas.Estado);
+      $("#ModalTareas").modal("show");
     }
   );
 };
 
 var Eliminar = (TareaID) => {
-  if (confirm("¿Estás seguro de que quieres eliminar este proyecto?")) {
-    console.log("Eliminar tarea con ID: ", TareaID);
+  if (confirm("¿Estás seguro de que quieres eliminar esta tarea?")) {
     $.post(
       "../../controllers/tareas.controllers.php?op=eliminar",
       { TareaID: TareaID },
       (resultado) => {
         resultado = JSON.parse(resultado);
         if (resultado === "ok") {
-          alert("Proyecto eliminado correctamente");
+          alert("Tarea eliminado correctamente");
           CargaLista();
         } else {
-          alert("Error al eliminar el proyecto");
+          alert("Error al eliminar la tarea");
         }
       }
     );
