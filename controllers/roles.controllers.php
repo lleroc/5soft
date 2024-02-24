@@ -31,10 +31,10 @@ switch ($_GET["op"]) {
         break;
         /*TODO: Procedimiento para insertar */
     case 'insertar':
-        $RolID = $_POST["RolID"];
+    
         $Nombre_Rol = $_POST["Nombre_Rol"];
         $datos = array();
-        $datos = $Roles->Insertar($Nombre_Rol);
+        $datos = $Roles->insertar($Nombre_Rol);
         echo json_encode($datos);
         break;
         /*TODO: Procedimiento para actualizar */
