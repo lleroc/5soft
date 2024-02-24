@@ -70,8 +70,11 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="layouts-container.html" class="menu-link">
-                        <div data-i18n="Container">Roles</div>
+
+                <a href="usuarios/roles.views.php" target="base" class="menu-link">
+                
+                        <?php $_SESSION['rutas'] = 'Roles'; ?>
+                        <div data-i18n="Without navbar">Roles</div>
                     </a>
                 </li>
                 <li class="menu-item">
