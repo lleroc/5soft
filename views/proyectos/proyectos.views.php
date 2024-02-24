@@ -55,7 +55,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Usuario">Usuario</label>
-                        <input  name="Usuario" id="Usuario" class="form-control" required>
+                        <input  name="Usuario" id="Usuario" class="form-control">
                     </div>
                 </div>
                 <div class="modal-footer">
