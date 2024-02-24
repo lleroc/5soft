@@ -58,7 +58,7 @@ class Usuarios{
         try {
             $con = new ClaseConectar();
             $con = $con->ProcedimientoConectar();
-            $cadena = "SELECT u.UserID, u.Nombre, u.CorreoElectronico, u.RolID from usuarios u INNER JOIN rolusuariorelacion r on r.UsuarioID = u.UserID INNER JOIN Roles ro ON ro.RolID = r.RolID WHERE `CorreoElectronico`='$Correo'";
+            $cadena = "SELECT u.UserID, u.Nombre, u.CorreoElectronico, u.Clave, u.RolID, ro.Nombre_Rol from usuarios u INNER JOIN rolusuariorelacion r on r.UsuarioID = u.UserID INNER JOIN Roles ro ON ro.RolID = r.RolID WHERE `CorreoElectronico`='$Correo'";
             $datos = mysqli_query($con, $cadena);
             return $datos;
         } catch (Throwable $th) {

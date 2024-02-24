@@ -69,9 +69,11 @@ switch ($_GET['op']) {
             //TODO:Control de si existe el registro en la base de datos
             try {
                 if (is_array($res) and count($res) > 0) {
-                    header("Location:../login.php?'$correo','$clave'");
                     //if ((md5($clave) == ($res["clave"]))) {
                         // header("Location:../views/home.php");
+                        // $par = $res["Clave"];
+                        // header("Location:../login.php?op=$par");
+                        // exit();
                     if ((($clave) == ($res["Clave"]))) {
                         //$datos2 = array();
                         // $datos2 = $Accesos->Insertar(date("Y-m-d H:i:s"), $res["idUsuarios"], 'ingreso');
