@@ -7,7 +7,7 @@ $Usuarios = new Usuarios();
 
 switch ($_GET['op']) {
     case 'todos':
-        $datos = $array();
+        $datos = array();
         $datos = $Usuarios->todos();
         while($row = mysqli_fetch_assoc($datos)){
             $todos[] = $row;
@@ -16,7 +16,7 @@ switch ($_GET['op']) {
         break;
     case 'uno':
         $UserID = $_POST['UserID'];
-        $datos = $array();
+        $datos = array();
         $datos = $Usuarios->uno($UserID);
         $res = mysqli_fetch_assoc($datos);
         echo json_encode($res);
@@ -27,7 +27,7 @@ switch ($_GET['op']) {
         $CorreoElectronico = $_POST['CorreoElectronico'];
         $Clave = $_POST['Clave'];
         $RolID = $_POST['RolID'];
-        $datos = $array();
+        $datos = array();
         $datos = $Usuarios->insertar($Nombre, $CorreoElectronico, $Clave, $RolID);
         echo json_encode($datos);
         break;
@@ -37,13 +37,13 @@ switch ($_GET['op']) {
         $CorreoElectronico = $_POST['CorreoElectronico'];
         $Clave = $_POST['Clave'];
         $RolID = $_POST['RolID'];
-        $datos = $array();
+        $datos = array();
         $datos = $Usuarios->actualizar($UserID, $Nombre, $CorreoElectronico, $Clave, $RolID);
         echo json_encode($datos);
         break;
     case 'eliminar':
         $UserID = $_POST['UserID'];
-        $datos = $array();
+        $datos = array();
         $datos = $Usuarios->eliminar($UserID);
         echo json_encode($datos);
         break;

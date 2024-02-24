@@ -2,7 +2,7 @@
 
 <!-- Basic Bootstrap Table -->
 <div class="card">
-    <button type="button" class="btn btn-outline-secondary" onclick="nuevoProyecto();" data-bs-toggle="modal" data-bs-target="#ModalProyectos">Nuevo Proyecto</button>
+    <button type="button" class="btn btn-outline-secondary" onclick="usuarios()" data-bs-toggle="modal" data-bs-target="#ModalProyectos">Nuevo Proyecto</button>
 
     <h5 class="card-header">Lista de Proyectos</h5>
     <div class="table-responsive text-nowrap">
@@ -54,7 +54,7 @@
                         <input type="date" name="FechaDeFinalizacion" id="FechaDeFinalizacion" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="NombreDelProyecto">Usuario</label>
+                        <label for="NombreDelProyecto">Usuario/s</label>
                         <input  name="Usuario" id="Usuario" class="form-control" required>
                     </div>
                     <!-- Agregado: Campo para seleccionar las tareas asociadas al proyecto -->

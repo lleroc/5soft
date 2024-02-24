@@ -3,6 +3,7 @@ function init() {
     GuardarEditar(e);
   });
 }
+var ruta = "../../controllers/usuarios.controllers.php?op="; 
 
 $().ready(() => {
   CargaLista();
@@ -97,6 +98,25 @@ var eliminar = (ProyectoID) => {
           }
       );
   }
+};
+
+var usuarios = () => {
+  return new Promise((resolve, reject) => {
+    var html = `<option value="0">Seleccione una opción</option>`;
+    $.post(
+      "../../controllers/usuarios.controllers.php?op=todos",
+      async (ListaUsuarios) => {
+        ListaUsuarios = JSON.parse(ListaUsuarios);
+        $.each(ListaUsuarios, (index, usuarios) => {
+          html += `<option value="${usuarios.UserID}">${usuarios.Nombre}</option>`;
+        });
+        await $("#Usuario").html(html);
+        resolve();
+      }
+    ).fail((error) => {
+      reject(error);
+    });
+  });
 };
 
 var LimpiarCajas = () => {
