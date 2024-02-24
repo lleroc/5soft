@@ -14,16 +14,18 @@ switch($_GET["op"]){
       while($row = mysqli_fetch_assoc($datos)) {
         $todos[] = $row;
       }
-
       echo json_encode($todos);
     break;
     case 'insertar':
       $TareaID = $_POST["TareaID"];
       $EstadoAnterior = $_POST["EstadoAnterior"];
       $EstadoNuevo = $_POST["EstadoNuevo"];
-      $datos = array();
-      $datos = $HistorialTareas->insertar($TareaID, $EstadoAnterior, $EstadoNuevo);
-      echo json_encode($datos);
+      $resultado = $HistorialTareas->insertar($TareaID, $EstadoAnterior, $EstadoNuevo);
+      if ($resultado === "ok") {
+        echo json_encode(array("mensaje" => "Inserción exitosa"));
+      } else {
+        echo json_encode(array("error" => $resultado));
+      }
       break;
 }
 
