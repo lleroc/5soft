@@ -216,7 +216,7 @@ CREATE TABLE `usuarios` (
   `UserID` int(11) NOT NULL,
   `Nombre` varchar(255) DEFAULT NULL,
   `CorreoElectronico` varchar(255) DEFAULT NULL,
-  `Contraseña` varchar(255) DEFAULT NULL,
+  `Clave` varchar(255) DEFAULT NULL,
   `RolID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
