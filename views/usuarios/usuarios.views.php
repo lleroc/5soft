@@ -1,8 +1,9 @@
 <?php require_once('../html/head2.php')  ?>
 
 <!-- Basic Bootstrap Table -->
+<!--onclick="sucursales(); roles()"-->
 <div class="card">
-    <button type="button" class="btn btn-outline-secondary" onclick="sucursales(); roles()" data-bs-toggle="modal" data-bs-target="#ModalUsuarios">Nuevo Usuario</button>
+    <button type="button" class="btn btn-outline-secondary"  data-bs-toggle="modal" data-bs-target="#ModalUsuarios">Nuevo Usuario</button>
 
 
     <h5 class="card-header">Lista de Usuarios</h5>
@@ -15,6 +16,7 @@
                     <th>Correo</th>
                     <th>Rol</th>
                     <th>Acciones</th>
+                    <th>Proyecto/s</th>
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0" id="ListaUsuarios">
@@ -51,6 +53,11 @@
                     <div class="form-group">
                         <label for="Nombres">Rol</label>
                         <select id="RolID" name="RolID" class="form-control">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Nombres">Proyecto</label>
+                        <select id="Proyecto" name="Proyecto" class="form-control">
                         </select>
                     </div>
                 </div>

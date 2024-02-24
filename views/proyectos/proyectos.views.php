@@ -15,6 +15,7 @@
                     <th>Fecha de Inicio</th>
                     <th>Fecha de Finalización</th>
                     <th>Acciones</th>
+                    <th>Usuario/s</th>
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0" id="ListaProyectos">
@@ -51,6 +52,10 @@
                     <div class="form-group">
                         <label for="FechaDeFinalizacion">Fecha de Finalización</label>
                         <input type="date" name="FechaDeFinalizacion" id="FechaDeFinalizacion" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Usuario">Usuario</label>
+                        <input  name="Usuario" id="Usuario" class="form-control">
                     </div>
                 </div>
                 <div class="modal-footer">

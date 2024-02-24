@@ -1,7 +1,7 @@
 <?php
 //TODO: Requerimientos 
 require_once('../config/conexion.php');
-class Usuarios_Roles
+class Usuario_Roles
 {
     /*TODO: Procedimiento para sacar todos los registros*/
     public function todos()
@@ -25,7 +25,7 @@ class Usuarios_Roles
         $con->close();
     }
     /*TODO: Procedimiento para insertar */
-    public function Insertar($Usuarios_idUsuarios, $Roles_idRoles,)
+    public function Insertar($Usuarios_idUsuarios, $Roles_idRoles)
     {
 
 
@@ -41,11 +41,11 @@ class Usuarios_Roles
         $con->close();
     }
     /*TODO: Procedimiento para actualizar */
-    public function Actualizar($Usuarios_idUsuarios, $Roles_idRoles, $idUsuariosRoles,)
+    public function Actualizar($IdRolUsuarioRelacionID, $Usuarios_idUsuarios, $Roles_idRoles)
     {
         $con = new ClaseConectar();
         $con = $con->ProcedimientoConectar();
-        $cadena = "update rolusuariorelacion set Usuarios_idUsuarios=$Usuarios_idUsuarios,Roles_idRoles=$Roles_idRoles, where idUsuariosRoles= $idUsuariosRoles";
+        $cadena = "update rolusuariorelacion set Usuarios_idUsuarios=$Usuarios_idUsuarios,Roles_idRoles=$Roles_idRoles, where IdRolUsuarioRelacionID= $IdRolUsuarioRelacionID";
         if (mysqli_query($con, $cadena)) {
             return "ok";
         } else {
