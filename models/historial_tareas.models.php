@@ -12,17 +12,18 @@ class HistorialTareas {
     $con->close();
   }
 
-  public function insert($TareaID, $EstadoAnterior, $EstadoNuevo) {
+  public function insertar($TareaID, $EstadoAnterior, $EstadoNuevo) {
     $con = new ClaseConectar();
     $con = $con->ProcedimientoConectar();
-    $cadena = "insert into historialtareas (TareaID, EstadoAnterior, EstadoNuevo) values('$TareaID','$EstadoAnterior','$EstadoNuevo')";
+    $cadena = "insert into historialtareas(TareaID, EstadoAnterior, EstadoNuevo) values($TareaID,'$EstadoAnterior','$EstadoNuevo')";
 
     if (mysqli_query($con, $cadena)) {
-      $con->close();
+      // $con->close();
       return "ok";
-  } else {
-      return mysqli_error($con);
-  }
+    } else {
+      // $con->close();
+      return "Error al insertar datos: " . mysqli_error($con);
+    }
   }
 }
 ?>

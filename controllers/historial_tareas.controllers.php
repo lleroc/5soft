@@ -17,6 +17,14 @@ switch($_GET["op"]){
 
       echo json_encode($todos);
     break;
+    case 'insertar':
+      $TareaID = $_POST["TareaID"];
+      $EstadoAnterior = $_POST["EstadoAnterior"];
+      $EstadoNuevo = $_POST["EstadoNuevo"];
+      $datos = array();
+      $datos = $HistorialTareas->insertar($TareaID, $EstadoAnterior, $EstadoNuevo);
+      echo json_encode($datos);
+      break;
 }
 
 ?>
