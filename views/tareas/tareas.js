@@ -99,7 +99,40 @@ var GuardarEditar = (e) => {
     },
   });
 };
+var Editar = (TareaID) => {
+  $.post(
+    "../../controllers/tareas.controllers.php?op=uno",
+    { TareaID: TareaID },
+    (tareas) => {
+      tareas = JSON.parse(tareas);
+      $("#ProyectoID").val(tareas.TareaID);
+      $("#NombreDelProyecto").val(tareas.Descripcion);
+      $("#Descripcion").val(tareas.FechaCreacion);
+      $("#FechaDeInicio").val(tareas.FechaVencimiento);
+      $("#FechaDeFinalizacion").val(tareas.Estado);
+      $("#ModalProyectos").modal("show");
+    }
+  );
+};
 
+var Eliminar = (TareaID) => {
+  if (confirm("¿Estás seguro de que quieres eliminar este proyecto?")) {
+    $.post(
+      "../../controllers/tareas.controllers.php?op=eliminar",
+      { TareaID: TareaID },
+      (resultado) => {
+        resultado = JSON.parse(resultado);
+        if (resultado === "ok") {
+          alert("Proyecto eliminado correctamente");
+          CargaLista();
+        } else {
+          alert("Error al eliminar el proyecto");
+        }
+      }
+    );
+  }
+};
+/*
 var uno = async (TareaID) => {
   document.getElementById("tituloModal").innerHTML = "Actualizar Tareas";
   $.post(ruta + "uno", { TareaID: TareaID }, (tareas) => {
@@ -143,7 +176,7 @@ var eliminar = (TareaID) => {
     }
   });
 };
-
+*/
 var LimpiarCajas = () => {
   (document.getElementById("Descripcion").value = ""),
     (document.getElementById("FechaCreacion").value = ""),
