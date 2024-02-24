@@ -21,7 +21,7 @@ class Tareas
         $con->close();
         return $datos;
     }
-    /*TODO: Procedimiento para insertar */
+
     public function Insertar($Descripcion, $FechaCreacion, $FechaVencimiento, $Estado)
     {
         $con = new ClaseConectar();
@@ -33,10 +33,10 @@ class Tareas
         } else {
             return mysqli_error($con);
         }
-        $con->close();
+        $con->close(); 
     }
 
-    //TODO: Procedimiento para actualizar 
+
     public function Actualizar($TareaID, $Descripcion, $FechaCreacion, $FechaVencimiento, $Estado)
     {
         $con = new ClaseConectar();
@@ -49,7 +49,7 @@ class Tareas
         }
         $con->close();
     }
-    //TODO: Procedimiento para Eliminar 
+
     public function Eliminar($TareaID)
     {
         $con = new ClaseConectar();

@@ -67,10 +67,6 @@
 </div>
 
 
-
-
-
-
 <?php require_once('../html/scripts2.php') ?>
 
 <script src="./tareas.views.js"></script>
