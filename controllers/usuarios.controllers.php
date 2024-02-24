@@ -22,13 +22,13 @@ switch ($_GET['op']) {
         echo json_encode($res);
         break;
     case 'insertar':
-        $UserID = $_POST['UserID'];
+        //$UserID = $_POST['UserID'];
         $Nombre = $_POST['Nombre'];
         $CorreoElectronico = $_POST['CorreoElectronico'];
         $Clave = $_POST['Clave'];
         $RolID = $_POST['RolID'];
         $datos = $array();
-        $datos = $Usuarios->insertar($UserID, $Nombre, $CorreoElectronico, $Clave, $RolID);
+        $datos = $Usuarios->insertar($Nombre, $CorreoElectronico, $Clave, $RolID);
         echo json_encode($datos);
         break;
     case 'actualizar':

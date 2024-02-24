@@ -71,7 +71,7 @@ function init() {
     return new Promise((resolve, reject) => {
       var html = `<option value="0">Seleccione una opción</option>`;
       $.post(
-        "../../controllers/rol.controllers.php?op=todos",
+        "../../controllers/roles.controllers.php?op=todos",
         async (ListaRoles) => {
           ListaRoles = JSON.parse(ListaRoles);
           $.each(ListaRoles, (index, rol) => {
