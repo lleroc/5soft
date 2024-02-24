@@ -26,14 +26,24 @@ switch ($_GET["op"]) {
         break;
 
     // Insertar un nuevo proyecto
-    case 'insertar':
-        $NombreDelProyecto = $_POST["NombreDelProyecto"];
-        $Descripcion = $_POST["Descripcion"];
-        $FechaDeInicio = $_POST["FechaDeInicio"];
-        $FechaDeFinalizacion = $_POST["FechaDeFinalizacion"];
-        $resultado = $Proyectos->Insertar($NombreDelProyecto, $Descripcion, $FechaDeInicio, $FechaDeFinalizacion);
-        echo json_encode($resultado);
-        break;
+    // Insertar un nuevo proyecto
+case 'insertar':
+    $NombreDelProyecto = $_POST["NombreDelProyecto"];
+    $Descripcion = $_POST["Descripcion"];
+    $FechaDeInicio = $_POST["FechaDeInicio"];
+    $FechaDeFinalizacion = $_POST["FechaDeFinalizacion"];
+    
+    // Insertar el proyecto y obtener su ID
+    $resultado = $Proyectos->Insertar($NombreDelProyecto, $Descripcion, $FechaDeInicio, $FechaDeFinalizacion);
+    if ($resultado == "ok") {
+        $ProyectoID = $Proyectos->obtenerUltimoID(); // Obtener el ID del último proyecto insertado
+        // Obtener las tareas asociadas al proyecto desde el formulario
+        $tareas = isset($_POST["TareaID"]) ? $_POST["TareaID"] : array();
+        // Asociar las tareas al proyecto en la tabla proyectorelacion
+        $Proyectos->asociarTareasAProyecto($ProyectoID, $tareas);
+    }
+    echo json_encode($resultado);
+    break;
 
     // Actualizar un proyecto existente
     case 'actualizar':
