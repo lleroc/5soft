@@ -2,7 +2,8 @@
 error_reporting(0);
 // Requerimientos
 require_once('../config/config.php');
-require_once("../models/proyectos.models.php"); 
+require_once("../models/proyectos.models.php");
+require_once("../models/usuarios.models.php"); 
 
 $Proyectos = new Proyectos;
 

@@ -64,4 +64,4 @@
 
 <?php require_once('../html/scripts2.php') ?>
 
-<script src="./proyectos.js"></script>
+<script src="./proyecto.js"></script>
