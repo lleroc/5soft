@@ -51,14 +51,14 @@
                         <!-- Logo -->
                         <div class="app-brand" style="text-align: center;">
                             <span class="app-brand-logo demo">
-                                <img src="./public/images/logo.webp" style="width: 15%;">
+                                <img src="./public/images/logo.jpeg" style="width: 50%;">
                             </span>
                         </div>
                         <!-- /Logo -->
                         <h4 class="mb-2"></h4>
                         <p class="mb-4"></p>
 
-                        <form action="controllers/usuarios.controllers.php?op=login" class="mb-3" method="POST">
+                        <form action="controllers/usuario.controllers.php?op=login" class="mb-3" method="POST">
                             <?php if (isset($_GET['op'])) {
                                 switch ($_GET['op']) {
                                     case "1":
@@ -82,7 +82,7 @@
                                 }
                             } ?>
                             <div class="mb-3">
-                                <label for="correo" class="form-label">Correo Electrónico</label>
+                                <label for="email" class="form-label">Correo Electrónico</label>
                                 <input type="text" class="form-control" id="correo" name="correo" placeholder="Ingrese su correo elctrónico" autofocus />
                             </div>
                             <div class="mb-3 form-password-toggle">
@@ -91,7 +91,7 @@
 
                                 </div>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="clave" class="form-control" name="clave" placeholder="*************" aria-describedby="password" />
+                                    <input type="password" id="contrasenia" class="form-control" name="contrasenia" placeholder="*************" aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
                             </div>

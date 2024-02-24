@@ -54,7 +54,6 @@ switch ($_GET["op"]) {
         echo json_encode($datos);
         break;
         /*TODO: Procedimiento para insertar */
-<<<<<<< HEAD
     // case 'login':
     //     header("Location:../login.php?op=2");
     //     return;
@@ -106,7 +105,4 @@ switch ($_GET["op"]) {
     //         echo ($th->getMessage());
     //     }
     //     break;
-=======
-   
->>>>>>> 4ec642b47035df028b3587f9a486a7b2aa9a0137
 }
