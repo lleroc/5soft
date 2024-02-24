@@ -33,43 +33,6 @@ var CargaLista = () => {
   });
 };
 
-/*var GuardarEditar = (e) => {
-  e.preventDefault();
-  var DatosFormularioTareas = new FormData($("#form_tareas")[0]);
-  var accion = "";
-
-  if (document.getElementById("TareaID").value != "") {
-    accion = ruta + "actualizar";
-  } else {
-    accion = ruta + "insertar";
-  }
-  $.ajax({
-    url: accion,
-    type: "post",
-    data: DatosFormularioTareas,
-    processData: false,
-    contentType: false,
-    cache: false,
-    success: (respuesta) => {
-      console.log(respuesta);
-      respuesta = JSON.parse(respuesta);
-      if (respuesta == "ok") {
-        Swal.fire({
-          title: "Tareas!",
-          text: "Se guardó con éxito",
-          icon: "success",
-        });
-        CargaLista();
-        LimpiarCajas();
-      } else {
-        Swal.fire({
-          title: "Tareas!",
-          text: "Error al guradar",
-          icon: "error",
-        });
-      }
-    },
-  });*/
 var GuardarEditar = (e) => {
   e.preventDefault();
   var DatosFormularioTareas = new FormData($("#form_tareas")[0]);
@@ -132,51 +95,7 @@ var Eliminar = (TareaID) => {
     );
   }
 };
-/*
-var uno = async (TareaID) => {
-  document.getElementById("tituloModal").innerHTML = "Actualizar Tareas";
-  $.post(ruta + "uno", { TareaID: TareaID }, (tareas) => {
-    usuario = JSON.parse(tareas);
-    document.getElementById("idUsuarios").value = tareas.idUsuarios;
-    document.getElementById("Descripcion").value = tareas.Descripcion;
-    document.getElementById("FechaCreacion").value = tareas.FechaCreacion;
-    document.getElementById("FechaVencimiento").value = tareas.FechaVencimiento;
-    document.getElementById("Estado").value = tareas.Estado;
-  });
-};
 
-var eliminar = (TareaID) => {
-  Swal.fire({
-    title: "Tarea",
-    text: "Esta segurpo que desea eliminar la Tarea",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Eliminar",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      $.post(ruta + "eliminar", { TareaID: TareaID }, (respuesta) => {
-        respuesta = JSON.parse(respuesta);
-        if (respuesta == "ok") {
-          CargaLista();
-          Swal.fire({
-            title: "Tareas!",
-            text: "Se emliminó con éxito",
-            icon: "success",
-          });
-        } else {
-          Swal.fire({
-            title: "Tareas!",
-            text: "Error al guradar",
-            icon: "error",
-          });
-        }
-      });
-    }
-  });
-};
-*/
 var LimpiarCajas = () => {
   (document.getElementById("Descripcion").value = ""),
     (document.getElementById("FechaCreacion").value = ""),
