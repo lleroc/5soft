@@ -85,6 +85,26 @@ function init() {
       });
     });
   };
+
+  var proyectos = () => {
+    return new Promise((resolve, reject) => {
+      var html = `<option value="0">Seleccione una opción</option>`;
+      $.post(
+        "../../controllers/proyectos.controllers.php?op=todos",
+        async (ListaProyectos) => {
+          ListaProyectos = JSON.parse(ListaProyectos);
+          $.each(ListaProyectos, (index, proyecto) => {
+            html += `<option value="${proyecto.ProyectoID}">${proyecto.NombreDelProyecto}</option>`;
+            console.log(ListaProyectos);
+          });
+          await $("#Proyecto").html(html);
+          resolve();
+        }
+      ).fail((error) => {
+        reject(error);
+      });
+    });
+  };
   
   var eliminar = () => {};
   

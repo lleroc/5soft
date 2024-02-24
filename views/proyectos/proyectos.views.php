@@ -42,20 +42,20 @@
                         <input type="text" name="NombreDelProyecto" id="NombreDelProyecto" class="form-control" placeholder="Ingrese el nombre del proyecto" required>
                     </div>
                     <div class="form-group">
-                        <label for="Descripcion">Descripción</label>
+                        <label for="NombreDelProyecto">Descripción</label>
                         <textarea name="Descripcion" id="Descripcion" class="form-control" placeholder="Ingrese la descripción del proyecto" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="FechaDeInicio">Fecha de Inicio</label>
+                        <label for="NombreDelProyecto">Fecha de Inicio</label>
                         <input type="date" name="FechaDeInicio" id="FechaDeInicio" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="FechaDeFinalizacion">Fecha de Finalización</label>
+                        <label for="NombreDelProyecto">Fecha de Finalización</label>
                         <input type="date" name="FechaDeFinalizacion" id="FechaDeFinalizacion" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="Usuario">Usuario</label>
-                        <input  name="Usuario" id="Usuario" class="form-control">
+                        <label for="NombreDelProyecto">Usuario</label>
+                        <input  name="Usuario" id="Usuario" class="form-control" required>
                     </div>
                 </div>
                 <div class="modal-footer">
