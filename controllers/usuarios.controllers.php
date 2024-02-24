@@ -75,22 +75,11 @@ switch ($_GET['op']) {
                         //$datos2 = array();
                         // $datos2 = $Accesos->Insertar(date("Y-m-d H:i:s"), $res["idUsuarios"], 'ingreso');
     
-<<<<<<< HEAD
                         $_SESSION["idUsuarios"] = $res["UserID"];
                         $_SESSION["Usuarios_Nombres"] = $res["Nombre"];
                         $_SESSION["Usuarios_Correo"] = $res["CorreoElectronico"];
                         $_SESSION["Usuario_IdRoles"] = $res["RolID"];
                         $_SESSION["Rol"] = $res["Nombre_Rol"];
-=======
-                        $_SESSION["Usuarios_UserID"] = $res["UserID"];
-                        $_SESSION["Usuarios_Nombre"] = $res["Nombres"];
-                        
-                        $_SESSION["Usuarios_Correo"] = $res["Correo"];
-                        $_SESSION["Usuario_IdRoles"] = $res["idRoles"];
-                        $_SESSION["Rol"] = $res["Rol"];
-    
-    
->>>>>>> 4ec642b47035df028b3587f9a486a7b2aa9a0137
     
                         header("Location:../views/home.php");
                         exit();
