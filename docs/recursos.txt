@@ -40,7 +40,7 @@ Atributos: SeguidorID (PK), UsuarioID (FK), ProyectoID (FK)
 11) Proyecto-Tarea Relación:
 Atributos: ProyectoID (FK), TareaID (FK)
 
-12) Rol-Tarea Relación:
+12) Rol-Tarea Relación: => Joel Brito
 Atributos: RolID (FK), TareaID (FK)
 
 13) Rol-Usuario Relación: => Luis Cañar
