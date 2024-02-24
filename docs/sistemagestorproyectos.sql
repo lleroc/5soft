@@ -22,7 +22,7 @@ SET time_zone = "+00:00";
 --
 CREATE SCHEMA if not exists `sistemagestorproyectos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 -- --------------------------------------------------------
-
+USE `sistemagestorproyectos`;
 --
 -- Estructura de tabla para la tabla `archivosadjuntos`
 --
