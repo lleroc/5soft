@@ -52,7 +52,7 @@ Atributos: ComentarioID (FK), TareaID (FK)
 15) Archivo-Tarea Relación:
 Atributos: ArchivoID (FK), TareaID (FK)
 
-16) Proyecto-Usuario Relación:
+16) Proyecto-Usuario Relación: Ricardo Vaca
 Atributos: ProyectoID (FK), UsuarioID (FK)
 
 

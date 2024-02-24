@@ -11,7 +11,7 @@ function init() {
   var CargaLista = () => {
     var html = "";
     $.get(
-      "../../controllers/proyectos.php?op=todos",
+      "../../controllers/proyectos.controllers.php?op=todos",
       (ListProyectos) => {
         ListProyectos = JSON.parse(ListProyectos);
         $.each(ListProyectos, (index, proyecto) => {
@@ -39,7 +39,7 @@ function init() {
   var GuardarEditar = (e) => {
     e.preventDefault();
     var DatosFormularioProyecto = new FormData($("#form_proyectos")[0]);
-    var accion = "../../controllers/proyectos.php?op=insertar";
+    var accion = "../../controllers/proyectos.controllers.php?op=insertar";
   
     $.ajax({
       url: accion,
@@ -64,7 +64,7 @@ function init() {
   
   var editar = (ProyectoID) => {
     $.post(
-      "../../controllers/proyectos.php?op=uno",
+      "../../controllers/proyectos.controllers.php?op=uno",
       { ProyectoID: ProyectoID },
       (proyecto) => {
         proyecto = JSON.parse(proyecto);
@@ -81,7 +81,7 @@ function init() {
   var eliminar = (ProyectoID) => {
     if (confirm("¿Estás seguro de que quieres eliminar este proyecto?")) {
       $.post(
-        "../../controllers/proyectos.php?op=eliminar",
+        "../../controllers/proyectos.controllers.php?op=eliminar",
         { ProyectoID: ProyectoID },
         (resultado) => {
           resultado = JSON.parse(resultado);
