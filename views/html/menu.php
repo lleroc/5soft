@@ -70,7 +70,12 @@
                     </a>
                 </li>
                 <li class="menu-item">
-
+                    <a href="tareas/tareas.views.php" target="base" class="menu-link">
+                        <?php $_SESSION['rutas'] = 'Tareas'; ?>
+                        <div data-i18n="Without navbar">Tareas</div>
+                    </a>
+                </li>
+                <li class="menu-item">
                 <a href="usuarios/roles.views.php" target="base" class="menu-link">
                 
                         <?php $_SESSION['rutas'] = 'Roles'; ?>
