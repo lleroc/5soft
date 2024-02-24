@@ -7,7 +7,20 @@ function init() {
 var ruta = "../../controllers/tarea.controllers.php?op=";
 $().ready(() => {
   CargaLista();
+  CargarProyectos(); // Agregado: Cargar la lista de proyectos al cargar la página
 });
+
+var CargarProyectos = () => { // Agregado: Función para cargar la lista de proyectos
+  $.get("../../controllers/proyectos.controllers.php?op=todos", (ListaProyectos) => {
+      ListaProyectos = JSON.parse(ListaProyectos);
+      var selectProyectos = $("#Proyecto");
+      selectProyectos.empty(); // Limpiar opciones anteriores
+      $.each(ListaProyectos, (index, proyecto) => {
+          selectProyectos.append(`<option value="${proyecto.ProyectoID}">${proyecto.NombreDelProyecto}</option>`);
+      });
+  });
+};
+
 
 var CargaLista = () => {
   var html = "";

@@ -54,8 +54,11 @@
                         <label for="Nombres" class="form-label">Estado</label>
                         <select name="tipo" id="tipo" class="form-control"></select>
                     </div>
-                    
-                    
+                    <div class="form-group">
+                      <label for="Proyecto">Proyecto</label>
+                      <select name="Proyecto" id="Proyecto" class="form-control" required>
+        <!-- Las opciones se cargarán dinámicamente mediante JavaScript -->
+                     </select>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Guardar</button>
