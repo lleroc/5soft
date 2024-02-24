@@ -22,7 +22,7 @@ SET time_zone = "+00:00";
 --
 CREATE SCHEMA if not exists `sistemagestorproyectos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 -- --------------------------------------------------------
-
+USE `sistemagestorproyectos`;
 --
 -- Estructura de tabla para la tabla `archivosadjuntos`
 --
@@ -66,7 +66,7 @@ CREATE TABLE `asignaciones` (
 CREATE TABLE `comentarios` (
   `ComentarioID` int(11) NOT NULL,
   `Contenido` text DEFAULT NULL,
-  `FechaCreacion` date DEFAULT CURRENT_DATE,
+  `FechaCreacion` datetime DEFAULT CURRENT_TIMESTAMP,
   `TareaID` int(11) DEFAULT NULL,
   `UsuarioID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -93,7 +93,7 @@ CREATE TABLE `historialtareas` (
   `TareaID` int(11) DEFAULT NULL,
   `EstadoAnterior` varchar(255) DEFAULT NULL,
   `EstadoNuevo` varchar(255) DEFAULT NULL,
-  `FechaCambio` date DEFAULT NULL
+  `FechaCambio` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -105,7 +105,7 @@ CREATE TABLE `historialtareas` (
 CREATE TABLE `notificaciones` (
   `NotificacionID` int(11) NOT NULL,
   `Contenido` text DEFAULT NULL,
-  `FechaCreacion` date DEFAULT CURRENT_DATE,
+  `FechaCreacion` datetime DEFAULT CURRENT_TIMESTAMP,
   `UsuarioID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -199,13 +199,11 @@ CREATE TABLE `seguidores` (
 CREATE TABLE `tareas` (
   `TareaID` int(11) NOT NULL,
   `Descripcion` text DEFAULT NULL,
-  `FechaCreacion` date DEFAULT CURRENT_DATE,
+  `FechaCreacion` datetime DEFAULT CURRENT_TIMESTAMP,
   `FechaVencimiento` date DEFAULT NULL,
-  `Estado` varchar(255) DEFAULT NULL,
+  `Estado` enum('NORMAL','URGENTE','CRITICO') DEFAULT NULL,
   `AsignadoA` int(11) DEFAULT NULL,
-  `Creador` int(11) DEFAULT NULL,
-  
-  cosntraint 
+  `Creador` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -218,7 +216,7 @@ CREATE TABLE `usuarios` (
   `UserID` int(11) NOT NULL,
   `Nombre` varchar(255) DEFAULT NULL,
   `CorreoElectronico` varchar(255) DEFAULT NULL,
-  `Contraseña` varchar(255) DEFAULT NULL,
+  `Clave` varchar(255) DEFAULT NULL,
   `RolID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -506,8 +504,52 @@ COMMIT;
 --
 -- Inserciones de datos 
 --
+insert into roles (Nombre_Rol) VALUES ('ADMINISTRADOR');
 
--- insert into tareas (Titulo, Descripcion, FechaVencimiento, Creador, AsignadoA, Estado) VALUES ('Tarea 1', 'Descripcion de la tarea 1', 
+insert into usuarios (Nombre, CorreoElectronico, Clave, RolID) VALUES ('Administrador', 'admin@gmail.com', '1234', 1);
+
+insert into tareas (Descripcion, FechaVencimiento, Creador, AsignadoA, Estado) VALUES ('Descripcion de la tarea 1', '2024-02-25', 1, 1, 'NORMAL'); 
+
+-- Inserciones para la tabla `archivosadjuntos`
+INSERT INTO archivosadjuntos (NombreArchivo, RutaArchivo, TareaID) VALUES ('archivo1.txt', '/ruta/archivo1.txt', 1);
+
+-- Inserciones para la tabla `archivotarearelacion`
+INSERT INTO archivotarearelacion (ArchivoID, TareaID) VALUES (1, 1);
+
+-- Inserciones para la tabla `asignaciones`
+INSERT INTO asignaciones (TareaID, UsuarioID) VALUES (1, 1);
+
+-- Inserciones para la tabla `comentarios`
+INSERT INTO comentarios (Contenido, TareaID, UsuarioID) VALUES ('Este es un comentario', 1, 1);
+
+-- Inserciones para la tabla `comentariotarearelacion`
+INSERT INTO comentariotarearelacion (ComentarioID, TareaID) VALUES (1, 1);
+
+-- Inserciones para la tabla `historialtareas`
+INSERT INTO historialtareas (TareaID, EstadoAnterior, EstadoNuevo, FechaCambio) VALUES (1, 'NORMAL', 'URGENTE', '2024-02-20');
+
+-- Inserciones para la tabla `notificaciones`
+INSERT INTO notificaciones (Contenido, UsuarioID) VALUES ('Nueva notificación', 1);
+
+-- Inserciones para la tabla `proyectos`
+INSERT INTO proyectos (NombreProyecto, Descripcion, FechaInicio, FechaFinalizacion) VALUES ('Proyecto 1', 'Descripción del proyecto', '2024-01-01', '2024-12-31');
+
+-- Inserciones para la tabla `proyectotarearelacion`
+INSERT INTO proyectotarearelacion (ProyectoID, TareaID) VALUES (1, 1);
+
+-- Inserciones para la tabla `proyectousuariorelacion`
+INSERT INTO proyectousuariorelacion (ProyectoID, UsuarioID) VALUES (1, 1);
+
+-- Inserciones para la tabla `roles` ya ha sido insertado previamente
+
+-- Inserciones para la tabla `roltarearelacion`
+INSERT INTO roltarearelacion (RolID, TareaID) VALUES (1, 1);
+
+-- Inserciones para la tabla `rolusuariorelacion`
+INSERT INTO rolusuariorelacion (RolID, UsuarioID) VALUES (1, 1);
+
+-- Inserciones para la tabla `seguidores`
+INSERT INTO seguidores (UsuarioID, ProyectoID) VALUES (1, 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
