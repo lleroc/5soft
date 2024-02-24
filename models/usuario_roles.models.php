@@ -41,11 +41,11 @@ class Usuario_Roles
         $con->close();
     }
     /*TODO: Procedimiento para actualizar */
-    public function Actualizar($IdRolUsuarioRelacionID, $Usuarios_idUsuarios, $Roles_idRoles)
+    public function Actualizar($Roles_idRoles,$Usuarios_idUsuarios,$IdRolUsuarioRelacionID)
     {
         $con = new ClaseConectar();
         $con = $con->ProcedimientoConectar();
-        $cadena = "update rolusuariorelacion set Usuarios_idUsuarios=$Usuarios_idUsuarios,Roles_idRoles=$Roles_idRoles, where IdRolUsuarioRelacionID= $IdRolUsuarioRelacionID";
+        $cadena = "update rolusuariorelacion set RolID=$Roles_idRoles, UsuarioID =$Usuarios_idUsuarios where RolUsuarioRelacionID= $IdRolUsuarioRelacionID";
         if (mysqli_query($con, $cadena)) {
             return "ok";
         } else {
@@ -58,7 +58,7 @@ class Usuario_Roles
     {
         $con = new ClaseConectar();
         $con = $con->ProcedimientoConectar();
-        $cadena = "DELETE FROM `rolusuariorelacion` WHERE `Usuarios_idUsuarios`= $Usuarios_idUsuarios";
+        $cadena = "DELETE FROM `rolusuariorelacion` WHERE `RolUsuarioRelacionID`= $Usuarios_idUsuarios";
 
         if (mysqli_query($con, $cadena)) {
             return 'ok';
