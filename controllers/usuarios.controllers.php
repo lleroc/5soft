@@ -25,20 +25,20 @@ switch ($_GET['op']) {
         $UserID = $_POST['UserID'];
         $Nombre = $_POST['Nombre'];
         $CorreoElectronico = $_POST['CorreoElectronico'];
-        $Contrasena = $_POST['Contraseña'];
+        $Clave = $_POST['Clave'];
         $RolID = $_POST['RolID'];
         $datos = $array();
-        $datos = $Usuarios->insertar($UserID, $Nombre, $CorreoElectronico, $Contrasena, $RolID);
+        $datos = $Usuarios->insertar($UserID, $Nombre, $CorreoElectronico, $Clave, $RolID);
         echo json_encode($datos);
         break;
     case 'actualizar':
         $UserID = $_POST['UserID'];
         $Nombre = $_POST['Nombre'];
         $CorreoElectronico = $_POST['CorreoElectronico'];
-        $Contrasena = $_POST['Contraseña'];
+        $Clave = $_POST['Clave'];
         $RolID = $_POST['RolID'];
         $datos = $array();
-        $datos = $Usuarios->actualizar($UserID, $Nombre, $CorreoElectronico, $Contrasena, $RolID);
+        $datos = $Usuarios->actualizar($UserID, $Nombre, $CorreoElectronico, $Clave, $RolID);
         echo json_encode($datos);
         break;
     case 'eliminar':

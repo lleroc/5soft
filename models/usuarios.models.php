@@ -7,7 +7,7 @@ class Usuarios{
     public function todos(){
         $con= new ClaseConectar();
         $con = $con->ProcedimientoConectar();
-        $cadena = "SELECT Usuarios.UserID, Usuarios.Nombre, Usuarios.CorreoElectronico, Usuarios.Contraseña, Roles.Nombre_Rol FROM Usuarios INNER JOIN Roles ON Usuarios.RolID = Roles.RolID";
+        $cadena = "SELECT Usuarios.UserID, Usuarios.Nombre, Usuarios.CorreoElectronico, Usuarios.Clave, Roles.Nombre_Rol FROM Usuarios INNER JOIN Roles ON Usuarios.RolID = Roles.RolID";
         $datos = mysqli_query($con, $cadena);
         return $datos;
         $con->close();
@@ -17,25 +17,25 @@ class Usuarios{
 
         $con= new ClaseConectar();
         $con = $con->ProcedimientoConectar();
-        $cadena = "SELECT Usuarios.UserID, Usuarios.Nombre, Usuarios.CorreoElectronico, Usuarios.Contraseña, Roles.Nombre_Rol WHERE UserID = '$UserID'";
+        $cadena = "SELECT Usuarios.UserID, Usuarios.Nombre, Usuarios.CorreoElectronico, Usuarios.Clave, Roles.Nombre_Rol WHERE UserID = '$UserID'";
         $datos = mysqli_query($con, $cadena);
         return $datos;
         $con->close();
     }
     //Procedimiento para insertar un usuario
-    public function insertar($Nombre, $CorreoElectronico, $Contrasena, $RolID){
+    public function insertar($Nombre, $CorreoElectronico, $Clave, $RolID){
         $con= new ClaseConectar();
         $con = $con->ProcedimientoConectar();
-        $cadena = "INSERT INTO Usuarios(Nombre, CorreoElectronico, Contraseña, RolID) VALUES('$Nombre', '$CorreoElectronico', '$Contrasena', '$RolID')";
+        $cadena = "INSERT INTO Usuarios(Nombre, CorreoElectronico, Clave, RolID) VALUES('$Nombre', '$CorreoElectronico', '$Clave', '$RolID')";
         $datos = mysqli_query($con, $cadena);
         return $datos;
         $con->close();
     }
     //Procedimiento para actualizar un usuario
-    public function actualizar($UserID, $Nombre, $CorreoElectronico, $Contrasena, $RolID){
+    public function actualizar($UserID, $Nombre, $CorreoElectronico, $Clave, $RolID){
         $con= new ClaseConectar();
         $con = $con->ProcedimientoConectar();
-        $cadena = "UPDATE Usuarios SET Nombre = '$Nombre', CorreoElectronico = '$CorreoElectronico', Contraseña = '$Contrasena', RolID = '$RolID' WHERE UserID = '$UserID'";
+        $cadena = "UPDATE Usuarios SET Nombre = '$Nombre', CorreoElectronico = '$CorreoElectronico', Clave = '$Clave', RolID = '$RolID' WHERE UserID = '$UserID'";
         $datos = mysqli_query($con, $cadena);
         return $datos;
         $con->close();
