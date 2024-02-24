@@ -10,17 +10,22 @@ $().ready(() => {
   CargarProyectos(); // Agregado: Cargar la lista de proyectos al cargar la página
 });
 
-var CargarProyectos = () => { // Agregado: Función para cargar la lista de proyectos
-  $.get("../../controllers/proyectos.controllers.php?op=todos", (ListaProyectos) => {
+var CargarProyectos = () => {
+  // Agregado: Función para cargar la lista de proyectos
+  $.get(
+    "../../controllers/proyectos.controllers.php?op=todos",
+    (ListaProyectos) => {
       ListaProyectos = JSON.parse(ListaProyectos);
       var selectProyectos = $("#Proyecto");
       selectProyectos.empty(); // Limpiar opciones anteriores
       $.each(ListaProyectos, (index, proyecto) => {
-          selectProyectos.append(`<option value="${proyecto.ProyectoID}">${proyecto.NombreDelProyecto}</option>`);
+        selectProyectos.append(
+          `<option value="${proyecto.ProyectoID}">${proyecto.NombreDelProyecto}</option>`
+        );
       });
-  });
+    }
+  );
 };
-
 
 var CargaLista = () => {
   var html = "";
@@ -31,8 +36,9 @@ var CargaLista = () => {
                 <td>${index + 1}</td>
                 <td>${tareas.Descripcion}</td>
                 <td>${tareas.FechaCreacion}</td>
-                <td>${tareas.FechaVencimiento}</td>
+                <td>${tareas.FechaVencimiento}</td>                
                 <td>${tareas.Estado}</td>
+                
     <td>
     <button class='btn btn-primary' click='uno(${
       tareas.TareaID
@@ -75,7 +81,7 @@ var GuardarEditar = (e) => {
     },
   });
 };
-var Editar = (TareaID) => {
+var uno = (TareaID) => {
   $.post(
     "../../controllers/tareas.controllers.php?op=uno",
     { TareaID: TareaID },
@@ -93,6 +99,7 @@ var Editar = (TareaID) => {
 
 var Eliminar = (TareaID) => {
   if (confirm("¿Estás seguro de que quieres eliminar este proyecto?")) {
+    console.log("Eliminar tarea con ID: ", TareaID);
     $.post(
       "../../controllers/tareas.controllers.php?op=eliminar",
       { TareaID: TareaID },

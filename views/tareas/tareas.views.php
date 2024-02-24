@@ -56,8 +56,8 @@
                     </div>
                     <div class="form-group">
                       <label for="Proyecto">Proyecto</label>
-                      <select name="Proyecto" id="Proyecto" class="form-control" required>
-        <!-- Las opciones se cargarán dinámicamente mediante JavaScript -->
+                      <select name="Proyecto" id="Proyecto" class="form-control">
+                           <!-- Las opciones se cargarán dinámicamente mediante JavaScript -->
                      </select>
                 </div>
                 <div class="modal-footer">

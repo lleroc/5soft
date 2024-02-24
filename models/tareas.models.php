@@ -11,7 +11,7 @@ class Tareas
         $con->close();
         return $datos;
     }
-    /*TODO: Procedimiento para sacar un registro*/
+
     public function uno($TareaID)
     {
         $con = new ClaseConectar();
@@ -37,11 +37,11 @@ class Tareas
     }
 
 
-    public function Actualizar($TareaID, $Descripcion, $FechaCreacion, $FechaVencimiento, $Estado)
+    public function Actualizar($Descripcion, $FechaCreacion, $FechaVencimiento, $Estado, $TareaID)
     {
         $con = new ClaseConectar();
         $con = $con->ProcedimientoConectar();
-        $cadena = "update tareas set Descripcion='$Descripcion',FechaCreacion='$FechaCreacion',FechaVencimiento='$FechaVencimiento',Estado='$Estado' where TareaID= $TareaID";
+        $cadena = "UPDATE  `tareas` SET Descripcion='$Descripcion',FechaCreacion='$FechaCreacion',FechaVencimiento='$FechaVencimiento',Estado='$Estado' where TareaID= $TareaID";
         if (mysqli_query($con, $cadena)) {
             return ($TareaID);
         } else {
@@ -54,7 +54,7 @@ class Tareas
     {
         $con = new ClaseConectar();
         $con = $con->ProcedimientoConectar();
-        $cadena = "delete from tareas where TareaID = $TareaID";
+        $cadena = "DELETE FROM  `tareas` WHERE TareaID = $TareaID";
         if (mysqli_query($con, $cadena)) {
             return true;
         } else {
