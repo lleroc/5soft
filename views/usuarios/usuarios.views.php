@@ -3,7 +3,7 @@
 <!-- Basic Bootstrap Table -->
 <!--onclick="sucursales(); roles()"-->
 <div class="card">
-    <button type="button" class="btn btn-outline-secondary"  data-bs-toggle="modal" data-bs-target="#ModalUsuarios">Nuevo Usuario</button>
+    <button type="button" class="btn btn-outline-secondary" onclick="roles(); proyectos();  "   data-bs-toggle="modal" data-bs-target="#ModalUsuarios">Nuevo Usuario</button>
 
 
     <h5 class="card-header">Lista de Usuarios</h5>
@@ -52,12 +52,12 @@
                     </div>
                     <div class="form-group">
                         <label for="Nombres">Rol</label>
-                        <select id="RolID" name="RolID" class="form-control">
+                        <select id="RolID" name="RolID" class="form-control" required>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="Nombres">Proyecto</label>
-                        <select id="Proyecto" name="Proyecto" class="form-control">
+                        <select id="Proyecto" name="Proyecto" class="form-control" required>
                         </select>
                     </div>
                 </div>
