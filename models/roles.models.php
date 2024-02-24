@@ -2,7 +2,7 @@
 
 require_once ('../config/conexion.php');
 
-class Usuarios{
+class Roles{
     //Procedimiento para obtener todos los roles
     public function todos(){
         $con= new ClaseConectar();
