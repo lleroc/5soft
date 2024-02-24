@@ -51,14 +51,14 @@
                         <!-- Logo -->
                         <div class="app-brand" style="text-align: center;">
                             <span class="app-brand-logo demo">
-                                <img src="./public/images/logo.jpeg" style="width: 50%;">
+                                <img src="./public/images/logo.webp" style="width: 15%;">
                             </span>
                         </div>
                         <!-- /Logo -->
                         <h4 class="mb-2"></h4>
                         <p class="mb-4"></p>
 
-                        <form action="controllers/usuario.controllers.php?op=login" class="mb-3" method="POST">
+                        <form action="controllers/usuarios.controllers.php?op=login" class="mb-3" method="POST">
                             <?php if (isset($_GET['op'])) {
                                 switch ($_GET['op']) {
                                     case "1":
