@@ -37,7 +37,7 @@ function init() {
   var GuardarEditar = (e) => {
     e.preventDefault();
     var DatosFormularioUsuario = new FormData($("#form_usuarios")[0]);
-    var accion = "../../controllers/usuario.controllers.php?op=insertar";
+    var accion = "../../controllers/usuarios.controllers.php?op=insertar";
   
     for (var pair of DatosFormularioUsuario.entries()) {
       console.log(pair[0] + ", " + pair[1]);
@@ -71,7 +71,7 @@ function init() {
     return new Promise((resolve, reject) => {
       var html = `<option value="0">Seleccione una opción</option>`;
       $.post(
-        "../../controllers/rol.controllers.php?op=todos",
+        "../../controllers/roles.controllers.php?op=todos",
         async (ListaRoles) => {
           ListaRoles = JSON.parse(ListaRoles);
           $.each(ListaRoles, (index, rol) => {

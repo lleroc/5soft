@@ -1,13 +1,13 @@
 <?php
 error_reporting(0);
 require_once('../models/usuario_roles.models.php');
-$Roles = new Roles;
+$Usuario_Roles = new Usuario_Roles;
 
 switch ($_GET["op"]) {
         /*TODO: Procedimiento para listar todos los roles */
     case 'todos':
         $datos = array();
-        $datos = $Roles->todos();
+        $datos = $Usuario_Roles->todos();
         while ($row = mysqli_fetch_assoc($datos)) {
             $todos[] = $row;
         }
@@ -32,27 +32,29 @@ switch ($_GET["op"]) {
         /*TODO: Procedimiento para insertar */
     case 'insertar':
         $RolID = $_POST["RolID"];
-        $Nombre_Rol = $_POST["Nombre_Rol"];
+        $UsuarioID = $_POST["UsuarioID"];
         $datos = array();
-        $datos = $Roles->Insertar($Nombre_Rol);
+        $datos = $Usuario_Roles->Insertar($RolID,$UsuarioID);
         echo json_encode($datos);
         break;
         /*TODO: Procedimiento para actualizar */
     case 'actualizar':
+        $IdRolUsuarioRelacionID = $_POST['IdRolUsuarioRelacionID'];
         $RolID = $_POST["RolID"];
-        $Nombre_Rol = $_POST["Nombre_Rol"];
+        $UsuarioID = $_POST["UsuarioID"];
         $datos = array();
-        $datos = $Roles->Actualizar($RolID, $Nombre_Rol);
+        $datos = $Roles->Actualizar($RolID, $UsuarioID);
         echo json_encode($datos);
         break;
         /*TODO: Procedimiento para eliminar */
     case 'eliminar':
-        $RolID = $_POST["RolID"];
+        $UsuarioID = $_POST["UsuarioID"];
         $datos = array();
-        $datos = $Roles->Eliminar($RolID);
+        $datos = $Roles->Eliminar($UsuarioID);
         echo json_encode($datos);
         break;
         /*TODO: Procedimiento para insertar */
+<<<<<<< HEAD
     // case 'login':
     //     header("Location:../login.php?op=2");
     //     return;
@@ -104,4 +106,7 @@ switch ($_GET["op"]) {
     //         echo ($th->getMessage());
     //     }
     //     break;
+=======
+   
+>>>>>>> 4ec642b47035df028b3587f9a486a7b2aa9a0137
 }
