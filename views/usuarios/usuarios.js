@@ -37,7 +37,7 @@ function init() {
   var GuardarEditar = (e) => {
     e.preventDefault();
     var DatosFormularioUsuario = new FormData($("#form_usuarios")[0]);
-    var accion = "../../controllers/usuario.controllers.php?op=insertar";
+    var accion = "../../controllers/usuarios.controllers.php?op=insertar";
   
     for (var pair of DatosFormularioUsuario.entries()) {
       console.log(pair[0] + ", " + pair[1]);
