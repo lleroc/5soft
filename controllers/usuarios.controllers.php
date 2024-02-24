@@ -22,13 +22,13 @@ switch ($_GET['op']) {
         echo json_encode($res);
         break;
     case 'insertar':
-        $UserID = $_POST['UserID'];
+        //$UserID = $_POST['UserID'];
         $Nombre = $_POST['Nombre'];
         $CorreoElectronico = $_POST['CorreoElectronico'];
         $Clave = $_POST['Clave'];
         $RolID = $_POST['RolID'];
         $datos = $array();
-        $datos = $Usuarios->insertar($UserID, $Nombre, $CorreoElectronico, $Clave, $RolID);
+        $datos = $Usuarios->insertar($Nombre, $CorreoElectronico, $Clave, $RolID);
         echo json_encode($datos);
         break;
     case 'actualizar':
@@ -48,18 +48,19 @@ switch ($_GET['op']) {
         echo json_encode($datos);
         break;
         case 'login':
+            header("Location:../views/home.php");
+            return;
             $correo = $_POST['correo'];
-            $contrasenia = $_POST['contrasenia'];
-    
+            $clave = $_POST['clave'];
             //TODO: Si las variables estab vacias rgersa con error
-            if (empty($correo) or  empty($contrasenia)) {
+            if (empty($correo) or  empty($clave)) {
                 header("Location:../login.php?op=2");
                 exit();
             }
     
             try {
                 $datos = array();
-                $datos = $Usuarios->login($correo, $contrasenia);
+                $datos = $Usuarios->login($correo, $clave);
                 $res = mysqli_fetch_assoc($datos);
             } catch (Throwable $th) {
                 header("Location:../login.php?op=1");
@@ -68,24 +69,23 @@ switch ($_GET['op']) {
             //TODO:Control de si existe el registro en la base de datos
             try {
                 if (is_array($res) and count($res) > 0) {
-                    //if ((md5($contrasenia) == ($res["Contrasenia"]))) {
-                    if ((($contrasenia) == ($res["Contrasenia"]))) {
+                    header("Location:../login.php?'$correo',''");
+                    //if ((md5($clave) == ($res["clave"]))) {
+                        // header("Location:../views/home.php");
+                    if ((($clave) == ($res["Clave"]))) {
                         //$datos2 = array();
                         // $datos2 = $Accesos->Insertar(date("Y-m-d H:i:s"), $res["idUsuarios"], 'ingreso');
     
-                        $_SESSION["Usuarios_UserID"] = $res["UserID"];
-                        $_SESSION["Usuarios_Nombre"] = $res["Nombres"];
-                        
-                        $_SESSION["Usuarios_Correo"] = $res["Correo"];
-                        $_SESSION["Usuario_IdRoles"] = $res["idRoles"];
-                        $_SESSION["Rol"] = $res["Rol"];
-    
-    
+                        $_SESSION["idUsuarios"] = $res["UserID"];
+                        $_SESSION["Usuarios_Nombres"] = $res["Nombre"];
+                        $_SESSION["Usuarios_Correo"] = $res["CorreoElectronico"];
+                        $_SESSION["Usuario_IdRoles"] = $res["RolID"];
+                        $_SESSION["Rol"] = $res["Nombre_Rol"];
     
                         header("Location:../views/home.php");
                         exit();
                     } else {
-                        header("Location:../login.php?op=1");
+                        header("Location:../login.php?op=5");
                         exit();
                     }
                 } else {

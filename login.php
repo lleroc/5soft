@@ -51,7 +51,7 @@
                         <!-- Logo -->
                         <div class="app-brand" style="text-align: center;">
                             <span class="app-brand-logo demo">
-                                <img src="./public/images/logo.jpeg" style="width: 50%;">
+                                <img src="./public/images/logo.webp" style="width: 15%;">
                             </span>
                         </div>
                         <!-- /Logo -->
