@@ -3,7 +3,11 @@ error_reporting(0);
 //TODO: Requerimientos 
 require_once('../config/sesiones.php');
 require_once("../models/tareas.models.php");
+require_once("../models/proyectos.models.php");
+
 $Tareas = new Tareas;
+$Proyectos = new Proyectos;
+
 switch ($_GET["op"]) {
        
     case 'todos':
@@ -28,8 +32,10 @@ switch ($_GET["op"]) {
         $FechaCreacion = $_POST["FechaCreacion"];
         $FechaVencimiento = $_POST["FechaVencimiento"];
         $Estado = $_POST["Estado"];
+        $ProyectoID = $_POST["ProyectoID"]; // Agregado: Obtener el ProyectoID de la tarea
         $datos = array();
-        $datos = $Tareas->Insertar($Descripcion, $FechaCreacion, $FechaVencimiento, $Estado);
+        // Pasar el ProyectoID al método Insertar
+        $datos = $Tareas->Insertar($Descripcion, $FechaCreacion, $FechaVencimiento, $Estado, $ProyectoID);
         echo json_encode($datos);
         break;
        
@@ -51,3 +57,4 @@ switch ($_GET["op"]) {
         echo json_encode($datos);
         break;
 }
+?>
