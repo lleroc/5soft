@@ -1,3 +1,9 @@
+<?php
+require_once('../config/sesiones.php');
+if ($_SESSION['Rol'] == 'ADMINISTRADOR') {
+    $_SESSION['rutas'] = 'Dashboard'
+?>
+    
     <!DOCTYPE html>
 
     <html lang="es" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
@@ -57,3 +63,9 @@
 
     </html>
 
+    <?php
+} else {
+    header('Location:../login.php');
+}
+
+?>
