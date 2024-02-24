@@ -11,9 +11,9 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Descripcion</th>
-                    <th>FechaCreacion</th>
-                    <th>FechaVencimiento</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Creacion</th>
+                    <th>Fecha de Vencimiento</th>
                     <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
@@ -56,8 +56,8 @@
                     </div>
                     <div class="form-group">
                       <label for="Proyecto">Proyecto</label>
-                      <select name="Proyecto" id="Proyecto" class="form-control" required>
-        <!-- Las opciones se cargarán dinámicamente mediante JavaScript -->
+                      <select name="Proyecto" id="Proyecto" class="form-control">
+                           <!-- Las opciones se cargarán dinámicamente mediante JavaScript -->
                      </select>
                 </div>
                 <div class="modal-footer">

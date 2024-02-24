@@ -10,17 +10,22 @@ $().ready(() => {
   CargarProyectos(); // Agregado: Cargar la lista de proyectos al cargar la página
 });
 
-var CargarProyectos = () => { // Agregado: Función para cargar la lista de proyectos
-  $.get("../../controllers/proyectos.controllers.php?op=todos", (ListaProyectos) => {
+var CargarProyectos = () => {
+  // Agregado: Función para cargar la lista de proyectos
+  $.get(
+    "../../controllers/proyectos.controllers.php?op=todos",
+    (ListaProyectos) => {
       ListaProyectos = JSON.parse(ListaProyectos);
       var selectProyectos = $("#Proyecto");
       selectProyectos.empty(); // Limpiar opciones anteriores
       $.each(ListaProyectos, (index, proyecto) => {
-          selectProyectos.append(`<option value="${proyecto.ProyectoID}">${proyecto.NombreDelProyecto}</option>`);
+        selectProyectos.append(
+          `<option value="${proyecto.ProyectoID}">${proyecto.NombreDelProyecto}</option>`
+        );
       });
-  });
+    }
+  );
 };
-
 
 var CargaLista = () => {
   var html = "";
@@ -31,13 +36,14 @@ var CargaLista = () => {
                 <td>${index + 1}</td>
                 <td>${tareas.Descripcion}</td>
                 <td>${tareas.FechaCreacion}</td>
-                <td>${tareas.FechaVencimiento}</td>
+                <td>${tareas.FechaVencimiento}</td>                
                 <td>${tareas.Estado}</td>
+                
     <td>
-    <button class='btn btn-primary' click='uno(${
+    <button class='btn btn-primary' onclick='uno(${
       tareas.TareaID
     })'>Editar</button>
-    <button class='btn btn-warning' click='eliminar(${
+    <button class='btn btn-warning' onclick='Eliminar(${
       tareas.TareaID
     })'>Eliminar</button>
                 `;
@@ -75,34 +81,35 @@ var GuardarEditar = (e) => {
     },
   });
 };
-var Editar = (TareaID) => {
+
+var uno = (TareaID) => {
   $.post(
     "../../controllers/tareas.controllers.php?op=uno",
     { TareaID: TareaID },
     (tareas) => {
       tareas = JSON.parse(tareas);
-      $("#ProyectoID").val(tareas.TareaID);
-      $("#NombreDelProyecto").val(tareas.Descripcion);
-      $("#Descripcion").val(tareas.FechaCreacion);
-      $("#FechaDeInicio").val(tareas.FechaVencimiento);
-      $("#FechaDeFinalizacion").val(tareas.Estado);
-      $("#ModalProyectos").modal("show");
+      $("#TareaID").val(tareas.TareaID);
+      $("#Descripcion").val(tareas.Descripcion);
+      $("#FechaCreacion").val(tareas.FechaCreacion);
+      $("#FechaVencimiento").val(tareas.FechaVencimiento);
+      $("#Estado").val(tareas.Estado);
+      $("#ModalTareas").modal("show");
     }
   );
 };
 
 var Eliminar = (TareaID) => {
-  if (confirm("¿Estás seguro de que quieres eliminar este proyecto?")) {
+  if (confirm("¿Estás seguro de que quieres eliminar esta tarea?")) {
     $.post(
       "../../controllers/tareas.controllers.php?op=eliminar",
       { TareaID: TareaID },
       (resultado) => {
         resultado = JSON.parse(resultado);
         if (resultado === "ok") {
-          alert("Proyecto eliminado correctamente");
+          alert("Tarea eliminado correctamente");
           CargaLista();
         } else {
-          alert("Error al eliminar el proyecto");
+          alert("Error al eliminar la tarea");
         }
       }
     );

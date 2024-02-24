@@ -49,7 +49,7 @@ Atributos: RolID (FK), UsuarioID (FK)
 14) Comentario-Tarea Relación:
 Atributos: ComentarioID (FK), TareaID (FK)
 
-15) Archivo-Tarea Relación:
+15) Archivo-Tarea Relación: Xavier Torres
 Atributos: ArchivoID (FK), TareaID (FK)
 
 16) Proyecto-Usuario Relación: Ricardo Vaca
