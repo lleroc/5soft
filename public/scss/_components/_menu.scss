@@ -103,7 +103,7 @@
   // link hover animation
   .menu:not(.menu-no-animation) & {
     transition-duration: $menu-animation-duration;
-    transition-property: color, background-color, left;
+    transition-property: color, background-color;
   }
 
   > :not(.menu-icon) {
@@ -199,7 +199,7 @@
   }
   // Sneat menu-header spacing
   .menu-header {
-    margin: $menu-vertical-header-margin-y 0 $menu-vertical-header-margin-y * 0.5 0;
+    margin: $menu-vertical-header-margin-y 0 $menu-vertical-header-margin-y / 2 0;
     padding: $menu-vertical-link-padding-y $menu-vertical-link-padding-x * 2 $menu-vertical-link-padding-y
       $menu-vertical-link-padding-x * 2;
   }
@@ -209,7 +209,7 @@
 
   .menu-item.active:not(.open) > {
     .menu-link {
-      font-weight: $font-weight-medium;
+      font-weight: $font-weight-semibold;
     }
   }
   .menu-item .menu-toggle {
@@ -227,8 +227,8 @@
   }
 
   .menu-sub {
-    padding-top: $menu-vertical-menu-link-padding-y * 0.5;
-    padding-bottom: $menu-vertical-menu-link-padding-y * 0.5;
+    padding-top: $menu-vertical-menu-link-padding-y / 2;
+    padding-bottom: $menu-vertical-menu-link-padding-y / 2;
 
     .menu-link {
       padding-top: $menu-vertical-menu-link-padding-y;

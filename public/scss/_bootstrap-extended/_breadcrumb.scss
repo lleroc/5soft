@@ -11,7 +11,7 @@
   }
 
   &.active {
-    font-weight: $font-weight-medium;
+    font-weight: $font-weight-semibold;
     &::before {
       font-weight: $font-weight-normal;
     }
@@ -36,12 +36,12 @@
   }
 }
 .breadcrumb-style1 .breadcrumb-item + .breadcrumb-item::before {
-  content: '\ea50';
+  content: '\ecb3';
   font-size: 1.125rem;
   line-height: 1.4;
 }
 .breadcrumb-style2 .breadcrumb-item + .breadcrumb-item::before {
-  content: '\ebe7';
+  content: '\ee4a';
   font-size: $font-size-lg;
   line-height: 1.35rem;
 }

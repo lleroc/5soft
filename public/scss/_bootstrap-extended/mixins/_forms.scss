@@ -5,7 +5,7 @@
 @mixin template-form-control-theme($color) {
   .form-control:focus,
   .form-select:focus {
-    border-color: $color !important;
+    border-color: $color;
   }
 
   // Using :focus-within to apply focus border color to default and merged input-group
@@ -13,7 +13,7 @@
     &:focus-within {
       .form-control,
       .input-group-text {
-        border-color: $color !important;
+        border-color: $color;
       }
     }
   }
@@ -41,18 +41,10 @@
 // Form Switch
 @mixin template-form-switch-theme($background) {
   $focus-color: $background;
-  $focus-bg-image: str-replace(
-    str-replace($form-switch-focus-bg-image, '#{$form-switch-focus-color}', $focus-color),
-    '#',
-    '%23'
-  );
+  $focus-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$focus-color}'/></svg>");
 
   $checked-color: $component-active-color;
-  $checked-bg-image: str-replace(
-    str-replace($form-switch-checked-bg-image, '#{$form-switch-checked-color}', $checked-color),
-    '#',
-    '%23'
-  );
+  $checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$checked-color}'/></svg>");
 
   .form-switch {
     .form-check-input {
@@ -125,8 +117,7 @@
   $icon: null,
   $tooltip-color: null,
   $tooltip-bg-color: null,
-  $focus-box-shadow: null,
-  $border-color: null
+  $focus-box-shadow: null
 ) {
 }
 
@@ -136,8 +127,7 @@
   $icon,
   $tooltip-color: color-contrast($color),
   $tooltip-bg-color: rgba($color, $form-feedback-tooltip-opacity),
-  $focus-box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba($color, $input-btn-focus-color-opacity),
-  $border-color: $color
+  $focus-box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba($color, $input-btn-focus-color-opacity)
 ) {
   .#{$state}-feedback {
     display: none;
@@ -172,7 +162,7 @@
 
   .form-control {
     @include form-validation-state-selector($state) {
-      border-color: $color !important;
+      border-color: $color;
 
       .dark-style & {
         border-color: $color !important;
@@ -190,7 +180,7 @@
       }
 
       &:focus {
-        border-color: $color !important;
+        border-color: $color;
         box-shadow: $focus-box-shadow;
       }
     }
@@ -210,7 +200,7 @@
 
   .form-select {
     @include form-validation-state-selector($state) {
-      border-color: $color !important;
+      border-color: $color;
       @if $enable-validation-icons {
         background-size: $form-select-bg-size, $form-select-feedback-icon-size;
         @include ltr-style {
@@ -258,10 +248,10 @@
     .form-control {
       @include form-validation-state-selector($state) {
         ~ .input-group-text {
-          border-color: $color !important;
+          border-color: $color;
         }
         &:focus {
-          border-color: $color !important;
+          border-color: $color;
           box-shadow: none;
           // ? .input-group has .input-group-text last/sibling
           ~ .input-group-text {

@@ -7,7 +7,7 @@
 (function () {
   let cardColor, headingColor, axisColor, shadeColor, borderColor;
 
-  cardColor = config.colors.cardColor;
+  cardColor = config.colors.white;
   headingColor = config.colors.headingColor;
   axisColor = config.colors.axisColor;
   borderColor = config.colors.borderColor;
@@ -302,7 +302,7 @@
               offsetY: 15,
               color: headingColor,
               fontSize: '15px',
-              fontWeight: '500',
+              fontWeight: '600',
               fontFamily: 'Public Sans'
             },
             value: {
@@ -432,7 +432,7 @@
       colors: [config.colors.primary, config.colors.secondary, config.colors.info, config.colors.success],
       stroke: {
         width: 5,
-        colors: [cardColor]
+        colors: cardColor
       },
       dataLabels: {
         enabled: false,
@@ -448,14 +448,6 @@
           top: 0,
           bottom: 0,
           right: 15
-        }
-      },
-      states: {
-        hover: {
-          filter: { type: 'none' }
-        },
-        active: {
-          filter: { type: 'none' }
         }
       },
       plotOptions: {

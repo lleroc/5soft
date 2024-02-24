@@ -19,11 +19,9 @@ let config = {
     dark: '#233446',
     black: '#000',
     white: '#fff',
-    cardColor: '#fff',
-    bodyBg: '#f5f5f9',
-    bodyColor: '#697a8d',
+    body: '#f4f5fb',
     headingColor: '#566a7f',
-    textMuted: '#a1acb8',
+    axisColor: '#a1acb8',
     borderColor: '#eceef1'
   }
 };

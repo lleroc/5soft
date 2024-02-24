@@ -31,9 +31,11 @@
     }
   }
 
-  #{$parent} {
-    hr {
-      background-color: $color !important;
+  .card {
+    #{$parent} {
+      hr {
+        background-color: $color !important;
+      }
     }
   }
 }
