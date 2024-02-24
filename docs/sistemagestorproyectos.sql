@@ -66,7 +66,7 @@ CREATE TABLE `asignaciones` (
 CREATE TABLE `comentarios` (
   `ComentarioID` int(11) NOT NULL,
   `Contenido` text DEFAULT NULL,
-  `FechaCreacion` date DEFAULT NULL,
+  `FechaCreacion` date DEFAULT CURRENT_DATE,
   `TareaID` int(11) DEFAULT NULL,
   `UsuarioID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -105,7 +105,7 @@ CREATE TABLE `historialtareas` (
 CREATE TABLE `notificaciones` (
   `NotificacionID` int(11) NOT NULL,
   `Contenido` text DEFAULT NULL,
-  `FechaCreacion` date DEFAULT NULL,
+  `FechaCreacion` date DEFAULT CURRENT_DATE,
   `UsuarioID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -199,11 +199,13 @@ CREATE TABLE `seguidores` (
 CREATE TABLE `tareas` (
   `TareaID` int(11) NOT NULL,
   `Descripcion` text DEFAULT NULL,
-  `FechaCreacion` date DEFAULT NULL,
+  `FechaCreacion` date DEFAULT CURRENT_DATE,
   `FechaVencimiento` date DEFAULT NULL,
   `Estado` varchar(255) DEFAULT NULL,
   `AsignadoA` int(11) DEFAULT NULL,
-  `Creador` int(11) DEFAULT NULL
+  `Creador` int(11) DEFAULT NULL,
+  
+  cosntraint 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -500,6 +502,12 @@ ALTER TABLE `tareas`
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`RolID`) REFERENCES `roles` (`RolID`);
 COMMIT;
+
+--
+-- Inserciones de datos 
+--
+
+-- insert into tareas (Titulo, Descripcion, FechaVencimiento, Creador, AsignadoA, Estado) VALUES ('Tarea 1', 'Descripcion de la tarea 1', 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
