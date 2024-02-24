@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `sistemagestorproyectos`
 --
-
+CREATE SCHEMA if not exists `sistemagestorproyectos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 -- --------------------------------------------------------
 
 --
