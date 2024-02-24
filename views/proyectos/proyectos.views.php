@@ -57,6 +57,13 @@
                         <label for="NombreDelProyecto">Usuario</label>
                         <input  name="Usuario" id="Usuario" class="form-control" required>
                     </div>
+                    <!-- Agregado: Campo para seleccionar las tareas asociadas al proyecto -->
+                    <div class="form-group">
+                        <label for="TareasAsociadas">Tareas Asociadas</label>
+                        <select name="TareasAsociadas" id="TareasAsociadas" class="form-control" multiple>
+                            <!-- Aquí se cargarán dinámicamente las opciones de las tareas -->
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Guardar</button>

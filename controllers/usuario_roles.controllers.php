@@ -39,20 +39,19 @@ switch ($_GET["op"]) {
         break;
         /*TODO: Procedimiento para actualizar */
     case 'actualizar':
-        $IdRolUsuarioRelacionID = $_POST['IdRolUsuarioRelacionID'];
         $RolID = $_POST["RolID"];
         $UsuarioID = $_POST["UsuarioID"];
+        $RolUsuarioRelacionID = $_POST['RolUsuarioRelacionID'];
         $datos = array();
-        $datos = $Roles->Actualizar($RolID, $UsuarioID);
+        $datos = $Usuario_Roles->Actualizar($RolID, $UsuarioID, $RolUsuarioRelacionID);
         echo json_encode($datos);
         break;
         /*TODO: Procedimiento para eliminar */
     case 'eliminar':
-        $UsuarioID = $_POST["UsuarioID"];
+        $RolUsuarioRelacionID = $_POST["RolUsuarioRelacionID"];
         $datos = array();
-        $datos = $Roles->Eliminar($UsuarioID);
+        $datos = $Usuario_Roles->Eliminar($RolUsuarioRelacionID);
         echo json_encode($datos);
         break;
-        /*TODO: Procedimiento para insertar */
-   
+     
 }

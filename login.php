@@ -51,7 +51,7 @@
                         <!-- Logo -->
                         <div class="app-brand" style="text-align: center;">
                             <span class="app-brand-logo demo">
-                                <img src="./public/images/logo.jpeg" style="width: 50%;">
+                                <img src="./public/images/logo.webp" style="width: 15%;">
                             </span>
                         </div>
                         <!-- /Logo -->
@@ -91,7 +91,7 @@
 
                                 </div>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="contrasenia" class="form-control" name="contrasenia" placeholder="*************" aria-describedby="password" />
+                                    <input type="password" id="contrasenia" class="form-control" name="clave" placeholder="*************" aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
                             </div>
