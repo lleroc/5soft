@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+**<!--/*<!DOCTYPE html>
 <html lang="es" class="light-style customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 <head>
@@ -135,3 +135,4 @@
 </body>
 
 </html>
+---->

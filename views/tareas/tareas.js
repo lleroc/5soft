@@ -32,8 +32,8 @@ var CargaLista = () => {
     $("#ListaTareas").html(html);
   });
 };
-/*
-var GuardarEditar = (e) => {
+
+/*var GuardarEditar = (e) => {
   e.preventDefault();
   var DatosFormularioTareas = new FormData($("#form_tareas")[0]);
   var accion = "";
@@ -70,6 +70,7 @@ var GuardarEditar = (e) => {
       }
     },
   });*/
+var GuardarEditar = (e) => {
   e.preventDefault();
   var DatosFormularioTareas = new FormData($("#form_tareas")[0]);
   var accion = "../../controllers/tareas.controllers.php?op=insertar";
