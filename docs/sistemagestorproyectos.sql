@@ -9,7 +9,7 @@
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "-05:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -41,6 +41,7 @@ CREATE TABLE `archivosadjuntos` (
 --
 
 CREATE TABLE `archivotarearelacion` (
+  `ArchivoTareaRelacionID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `ArchivoID` int(11) DEFAULT NULL,
   `TareaID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -78,6 +79,7 @@ CREATE TABLE `comentarios` (
 --
 
 CREATE TABLE `comentariotarearelacion` (
+  `ComentarioTareaRelacionID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `ComentarioID` int(11) DEFAULT NULL,
   `TareaID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -130,6 +132,7 @@ CREATE TABLE `proyectos` (
 --
 
 CREATE TABLE `proyectotarearelacion` (
+  `ProyectoTareaRelacionID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `ProyectoID` int(11) DEFAULT NULL,
   `TareaID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -141,6 +144,7 @@ CREATE TABLE `proyectotarearelacion` (
 --
 
 CREATE TABLE `proyectousuariorelacion` (
+  `ProyectoUsuarioRelacionID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `ProyectoID` int(11) DEFAULT NULL,
   `UsuarioID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -163,6 +167,7 @@ CREATE TABLE `roles` (
 --
 
 CREATE TABLE `roltarearelacion` (
+  `RolTareaRelacionID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `RolID` int(11) DEFAULT NULL,
   `TareaID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -174,6 +179,7 @@ CREATE TABLE `roltarearelacion` (
 --
 
 CREATE TABLE `rolusuariorelacion` (
+  `RolUsuarioRelacionID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `RolID` int(11) DEFAULT NULL,
   `UsuarioID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -401,7 +407,6 @@ ALTER TABLE `tareas`
 --
 ALTER TABLE `usuarios`
   MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- Restricciones para tablas volcadas
 --
@@ -526,7 +531,7 @@ INSERT INTO comentarios (Contenido, TareaID, UsuarioID) VALUES ('Este es un come
 INSERT INTO comentariotarearelacion (ComentarioID, TareaID) VALUES (1, 1);
 
 -- Inserciones para la tabla `historialtareas`
-INSERT INTO historialtareas (TareaID, EstadoAnterior, EstadoNuevo, FechaCambio) VALUES (1, 'NORMAL', 'URGENTE', '2024-02-20');
+INSERT INTO historialtareas (TareaID, EstadoAnterior, EstadoNuevo) VALUES (1, 'NORMAL', 'URGENTE');
 
 -- Inserciones para la tabla `notificaciones`
 INSERT INTO notificaciones (Contenido, UsuarioID) VALUES ('Nueva notificación', 1);

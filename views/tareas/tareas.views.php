@@ -51,8 +51,8 @@
                         <input type="date" name="FechaVencimiento" id="FechaVencimiento" class="form-control" placeholder="Ingrese una fecha aproximada de termino" required>
                     </div>                    
                     <div class="form-group">
-                        <label for="Nombres">Estado</label>
-                        <input type="text" name="Estado" id="Estado" class="form-control" placeholder="Estado" required>
+                        <label for="Nombres" class="form-label">Estado</label>
+                        <select name="tipo" id="tipo" class="form-control"></select>
                     </div>
                     
                     
@@ -69,4 +69,4 @@
 
 <?php require_once('../html/scripts2.php') ?>
 
-<script src="./tareas.views.js"></script>
+<script src="./tareas.js"></script>
