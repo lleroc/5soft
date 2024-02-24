@@ -48,12 +48,12 @@ switch ($_GET['op']) {
         echo json_encode($datos);
         break;
         case 'login':
-            header("Location:../views/home.php");
-            return;
+            // header("Location:../views/home.php");
+            // return;
             $correo = $_POST['correo'];
             $clave = $_POST['clave'];
             //TODO: Si las variables estab vacias rgersa con error
-            if (empty($correo) or  empty($clave)) {
+            if (empty($correo) or empty($clave)) {
                 header("Location:../login.php?op=2");
                 exit();
             }
@@ -69,7 +69,7 @@ switch ($_GET['op']) {
             //TODO:Control de si existe el registro en la base de datos
             try {
                 if (is_array($res) and count($res) > 0) {
-                    header("Location:../login.php?'$correo',''");
+                    header("Location:../login.php?'$correo','$clave'");
                     //if ((md5($clave) == ($res["clave"]))) {
                         // header("Location:../views/home.php");
                     if ((($clave) == ($res["Clave"]))) {
@@ -85,7 +85,7 @@ switch ($_GET['op']) {
                         header("Location:../views/home.php");
                         exit();
                     } else {
-                        header("Location:../login.php?op=5");
+                        header("Location:../login.php?op=1");
                         exit();
                     }
                 } else {
