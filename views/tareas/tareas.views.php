@@ -11,9 +11,9 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Descripcion</th>
-                    <th>FechaCreacion</th>
-                    <th>FechaVencimiento</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Creacion</th>
+                    <th>Fecha de Vencimiento</th>
                     <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
